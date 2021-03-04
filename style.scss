@@ -1,3 +1,54 @@
 * {
   margin: 0;
+  text-align: center;
+}
+
+body {
+  background-image: url("background.jpg");
+  background-size: cover;
+}
+
+.header {
+  .title {
+    color: #f8f8f8;
+  }
+  .subtitle {
+    color: #f8f8f8;
+  }
+}
+
+.input {
+  .input-header {
+    color: #f8f8f8;
+  }
+  .form {
+    display: grid;
+    grid-template-columns: 1fr;
+    margin: 0 auto;
+    max-width: 600px;
+    .input-label {
+      color: #f8f8f8;
+    }
+    .form-input,
+    .form-select {
+      text-align: center;
+    }
+    .form-select {
+      margin: 0 auto;
+      max-width: 120px;
+    }
+  }
+}
+
+.result {
+  .name-result,
+  .death-result,
+  .survival-result,
+  .entry-fail {
+    color: #f8f8f8;
+  }
+}
+
+.button {
+  margin: 0 auto;
 }

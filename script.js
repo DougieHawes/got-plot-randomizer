@@ -84,13 +84,15 @@ const characterArray = [
   "Walder Frey",
 ];
 const deathMethodArray = [
-  "poisoned",
-  "stabbed",
-  "cursed",
-  "decapitated",
-  "burned alive",
-  "drowned",
-  "slain in a trial by combat",
+  "poisoned by",
+  "stabbed by",
+  "cursed by",
+  "decapitated by",
+  "executed by",
+  "burned alive by",
+  "drowned by",
+  "smothered in your sleep by",
+  "slain in a trial by combat with",
 ];
 const survivalMethodArray = [
   "poisoning",
@@ -141,7 +143,7 @@ const getDeath = () => {
   let character =
     characterArray[Math.floor(Math.random() * characterArray.length)];
 
-  deathResultBox.innerHTML = `You will be ${deathMethod} by ${character}`;
+  deathResultBox.innerHTML = `You will be ${deathMethod} ${character}`;
 };
 const getSurvival = () => {
   deathResultBox.innerHTML = null;
