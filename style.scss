@@ -1,36 +1,52 @@
+@font-face {
+  font-family: "GOTfont";
+  src: url("GameOfThrones.ttf");
+}
+
+$colour1: goldenrod;
+
 * {
+  border: none;
+  color: $colour1;
   margin: 0;
+  outline: none;
   text-align: center;
+  user-select: none;
 }
 
 body {
-  background-image: url("background.jpg");
-  background-size: cover;
+  background: black;
+}
+
+h1,
+h2,
+.button {
+  font-family: "GOTfont", "times-new-roman";
+  font-weight: 300;
 }
 
 .header {
-  .title {
-    color: #f8f8f8;
-  }
-  .subtitle {
-    color: #f8f8f8;
-  }
+  padding: 21px 0;
 }
 
 .input {
-  .input-header {
-    color: #f8f8f8;
+  margin: 0 auto;
+  max-width: 600px;
+  .fire-img {
+    width: 210px;
   }
   .form {
     display: grid;
     grid-template-columns: 1fr;
-    margin: 0 auto;
-    max-width: 600px;
-    .input-label {
-      color: #f8f8f8;
+    .form-input {
+      border-bottom: 1px solid $colour1;
+      margin: 12px 0;
     }
+    .input-label,
     .form-input,
     .form-select {
+      background: black;
+      font-size: 21px;
       text-align: center;
     }
     .form-select {
@@ -40,15 +56,9 @@ body {
   }
 }
 
-.result {
-  .name-result,
-  .death-result,
-  .survival-result,
-  .entry-fail {
-    color: #f8f8f8;
-  }
-}
-
 .button {
+  background: black;
+  cursor: pointer;
+  font-size: 21px;
   margin: 0 auto;
 }

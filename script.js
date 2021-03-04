@@ -1,3 +1,6 @@
+let input = document.getElementById("input");
+let result = document.getElementById("result");
+
 let firstNameInput = document.getElementById("first-name");
 let secondNameInput = document.getElementById("second-name");
 let genderInput = document.getElementById("gender");
@@ -5,12 +8,13 @@ let genderInput = document.getElementById("gender");
 let resetButton = document.getElementById("reset");
 let submitButton = document.getElementById("submit");
 let entryFail = document.getElementById("entry-fail");
-
 let nameResultBox = document.getElementById("name-result");
-let surviveResultBox = document.getElementById("survive");
 let deathResultBox = document.getElementById("death-result");
+let resultBox = document.getElementById("result");
 let survivalResultBox = document.getElementById("survival-result");
 
+deathResultBox.style.display = "none";
+survivalResultBox.style.display = "none";
 resetButton.style.display = "none";
 entryFail.style.display = "none";
 
@@ -52,7 +56,7 @@ const characterArray = [
   "Ygritte",
   "Brienne of Tarth",
   "The Night King",
-  "Middandei",
+  "Missandei",
   "Shae",
   "Margaery Tyrell",
   "Theon Greyjoy",
@@ -101,12 +105,10 @@ const survivalMethodArray = [
   "decapitating",
   "burning alive",
   "drowning",
-  "winning a trail trial by combat to",
+  "winning a trial by combat to",
   "seducing",
   "winning over",
 ];
-
-let surviveResult;
 
 const capitalize = (s) => {
   if (typeof s !== "string") return "";
@@ -136,24 +138,24 @@ const getFullName = () => {
 };
 
 const getDeath = () => {
-  survivalResultBox.innerHTML = null;
+  deathResultBox.style.display = "block";
 
   let deathMethod =
     deathMethodArray[Math.floor(Math.random() * deathMethodArray.length)];
   let character =
     characterArray[Math.floor(Math.random() * characterArray.length)];
 
-  deathResultBox.innerHTML = `You will be ${deathMethod} ${character}`;
+  resultBox.innerHTML = `You meet the gods after being ${deathMethod} ${character}`;
 };
 const getSurvival = () => {
-  deathResultBox.innerHTML = null;
+  survivalResultBox.style.display = "block";
 
   let survivalMethod =
     survivalMethodArray[Math.floor(Math.random() * survivalMethodArray.length)];
   let character =
     characterArray[Math.floor(Math.random() * characterArray.length)];
 
-  survivalResultBox.innerHTML = `By ${survivalMethod} ${character}`;
+  resultBox.innerHTML = `You aquire favour from the gods by ${survivalMethod} ${character}`;
 };
 
 const getResult = () => {
@@ -167,32 +169,35 @@ const getResult = () => {
       entryFail.style.display = "none";
     }, 3000);
   } else {
+    input.style.display = "none";
+    result.style.display = "block";
+    resetButton.style.display = "block";
+
     surviveResult = Math.floor(Math.random() * 2) === 0 ? false : true;
 
     nameResultBox.innerHTML = getFullName();
-    surviveResultBox.innerHTML = `you will ${
-      surviveResult ? "survive" : "die"
-    }`;
 
     if (surviveResult === false) {
       getDeath();
     } else {
       getSurvival();
     }
-    resetButton.style.display = "block";
+
+    input.style.display = "none";
   }
 };
 
 const resetItems = () => {
-  firstNameInput.value = null;
-  secondNameInput.value = null;
-  genderInput.value = "male";
-
-  nameResultBox.innerHTML = null;
-  surviveResultBox.innerHTML = null;
-  deathResultBox.innerHTML = null;
-
+  input.style.display = "block";
+  result.style.display = "none";
+  nameResultBox.style.display = "none";
+  deathResultBox.style.display = "none";
+  survivalResultBox.style.display = "none";
   resetButton.style.display = "none";
+
+  firstNameInput.value = "";
+  secondNameInput.value = "";
+  genderInput.value = "";
 };
 
 submitButton.addEventListener("click", getResult);

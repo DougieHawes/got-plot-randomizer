@@ -11,32 +11,33 @@
       <p class="subtitle">how will you fare in westeros</p>
     </header>
     <main>
-      <div class="input">
-        <p class="input-header">first answer a few questions</p>
-        <form class="form" method="post">
-          <label class="input-label" for="first-name"
-            >share your first name</label
-          >
+      <div class="input" id="input">
+        <p class="input-header">gaze into the fire and tell the gods...</p>
+        <img class="fire-img" src="fire.jpg" alt="" />
+        <form class="form">
+          <label class="input-label" for="first-name">
+            ...your first name
+          </label>
           <input
             class="form-input"
             id="first-name"
             type="text"
             name="first-name"
-            value=""
+            value="dougie"
           />
-          <label class="input-label" for="second-name"
-            >share your family name</label
-          >
+          <label class="input-label" for="second-name">
+            ...your family name
+          </label>
           <input
             class="form-input"
             id="second-name"
             type="text"
             name="second-name"
-            value=""
+            value="hawes"
           />
-          <label class="input-label" for="gender">share your gender</label>
+          <label class="input-label" for="gender">...your gender</label>
           <select class="form-select" id="gender" name="gender">
-            <option value="">*please choose*</option>
+            <!-- <option value="">*please choose*</option> -->
             <option value="male">male</option>
             <option value="female">female</option>
             <option value="other">other</option>
@@ -45,18 +46,28 @@
             SUBMIT
           </button>
         </form>
-        <div class="result">
-          <div class="name-result" id="name-result"></div>
-          <div class="survive" id="survive"></div>
-          <div class="death-result" id="death-result"></div>
-          <div class="survival-result" id="survival-result"></div>
-          <div class="entry-fail" id="entry-fail">
-            please complete all items
+      </div>
+      <div class="result">
+        <div class="name-result" id="name-result"></div>
+        <div class="death-result" id="death-result">
+          <div class="death" id="death-image">
+            <h2>you die</h2>
+            <img src="death.jpg" alt="" />
           </div>
         </div>
+        <div class="survival-result" id="survival-result">
+          <div class="survive" id="survival-image">
+            <h2>you survive</h2>
+            <img src="victory.jpg" alt="" />
+          </div>
+        </div>
+        <div id="result"></div>
         <button class="button" id="reset" type="button" name="button">
-          AGAIN?
+          ASK AGAIN
         </button>
+      </div>
+      <div class="entry-fail" id="entry-fail">
+        please complete all items
       </div>
     </main>
     <!-- external script -->
